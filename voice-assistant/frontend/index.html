@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Aware Voice Assistant</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🧠 Self-Aware Voice Assistant</h1>
+            <div class="connection-status">
+                <span id="connectionStatus" class="status-indicator disconnected">Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Main Interface -->
+        <main class="main-content">
+            <!-- Voice Interface -->
+            <section id="voiceInterface" class="voice-interface">
+                <div class="voice-controls">
+                    <button id="recordButton" class="record-button" disabled>
+                        <span class="record-icon">🎤</span>
+                        <span class="record-text">Click to Record</span>
+                    </button>
+                    <div id="vuMeter" class="vu-meter">
+                        <div id="vuLevel" class="vu-level"></div>
+                    </div>
+                </div>
+                
+                <div class="transcription-display">
+                    <h3>Transcription:</h3>
+                    <div id="transcriptionText" class="transcription-text">
+                        Ready to listen...
+                    </div>
+                    <div id="transcriptionConfidence" class="confidence-indicator">
+                        Confidence: --
+                    </div>
+                </div>
+            </section>
+
+            <!-- Text Interface -->
+            <section id="textInterface" class="text-interface">
+                <h3>Text Input Alternative:</h3>
+                <div class="text-input-container">
+                    <textarea id="textInput" class="text-input" 
+                              placeholder="Type your message here as an alternative to voice input..."
+                              rows="3"></textarea>
+                    <button id="sendTextButton" class="send-button" disabled>Send</button>
+                </div>
+            </section>
+
+            <!-- Provider Selector -->
+            <section id="providerSelector" class="provider-selector">
+                <h3>LLM Provider & Model:</h3>
+                <div class="selector-controls">
+                    <div class="provider-dropdown">
+                        <label for="providerSelect">Provider:</label>
+                        <select id="providerSelect" disabled>
+                            <option value="">Loading...</option>
+                        </select>
+                        <span id="providerStatus" class="provider-status">⚪</span>
+                    </div>
+                    <div class="model-dropdown">
+                        <label for="modelSelect">Model:</label>
+                        <select id="modelSelect" disabled>
+                            <option value="">Select Provider First</option>
+                        </select>
+                        <span id="modelStatus" class="model-status">⚪</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Response Display -->
+            <section id="responseDisplay" class="response-display">
+                <h3>Assistant Response:</h3>
+                <div id="responseText" class="response-text">
+                    Waiting for input...
+                </div>
+                <div class="response-meta">
+                    <span id="responseProvider" class="response-provider">Provider: --</span>
+                    <span id="responseModel" class="response-model">Model: --</span>
+                    <span id="responseTime" class="response-time">Time: --</span>
+                </div>
+                <div class="audio-controls">
+                    <button id="playResponseButton" class="play-button" disabled>
+                        🔊 Play Response
+                    </button>
+                    <audio id="responseAudio" style="display: none;"></audio>
+                </div>
+            </section>
+        </main>
+
+        <!-- Self-Awareness Monitor Panel -->
+        <aside id="selfAwarenessPanel" class="self-awareness-panel collapsed">
+            <div class="panel-header">
+                <h3>🧠 System Consciousness</h3>
+                <button id="toggleSelfAwareness" class="toggle-btn">▼</button>
+            </div>
+            <div class="panel-content">
+                <div class="metrics-section">
+                    <h4>Real-time Metrics</h4>
+                    <div id="selfAwarenessMetrics" class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">Audio Level:</span>
+                            <span id="audioLevel" class="metric-value">-- dB</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">STT Confidence:</span>
+                            <span id="sttConfidence" class="metric-value">--%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Response Time:</span>
+                            <span id="responseTimeMetric" class="metric-value">--s</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">System Health:</span>
+                            <span id="systemHealth" class="metric-value">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alerts-section">
+                    <h4>System Alerts & Analysis</h4>
+                    <div id="selfAwarenessAlerts" class="alerts-container">
+                        <div class="alert-item info">
+                            <span class="alert-time">--:--:--</span>
+                            <span class="alert-message">System monitoring ready</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="actions-section">
+                    <button id="refreshSystemStatus" class="action-btn">🔄 Refresh Status</button>
+                    <button id="requestErrorAnalysis" class="action-btn">🔍 Analyze Errors</button>
+                    <button id="testCapabilities" class="action-btn">🎯 Test Capabilities</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Disconnect Controls -->
+        <div class="disconnect-section">
+            <button id="disconnectButton" class="disconnect-button" disabled>
+                🔌 Disconnect & Terminate Sessions
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="services/websocket-client.js"></script>
+    <script src="components/voice-interface.js"></script>
+    <script src="components/text-interface.js"></script>
+    <script src="components/provider-selector.js"></script>
+    <script src="components/self-awareness-ui.js"></script>
+    <script src="components/main-app.js"></script>
+</body>
+</html>
