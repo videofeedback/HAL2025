@@ -29,8 +29,8 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/self-aware-voice-assistant.git
-   cd self-aware-voice-assistant
+   git clone https://github.com/videofeedback/HAL2025.git
+   cd HAL2025/voice-assistant
    ```
 
 2. **Create virtual environment**:
