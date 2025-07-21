@@ -30,8 +30,8 @@ ENV/
 .venv/
 .env
 
-# API Keys and Secrets (exclude actual keys but allow placeholder keys in root config)
-voice-assistant/config/keys/*.key
+# API Keys and Secrets (allow placeholder keys in voice-assistant config)
+# Note: voice-assistant/config/keys/*.key files contain safe placeholders
 .env
 .env.local
 .env.development.local
