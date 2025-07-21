@@ -30,9 +30,8 @@ ENV/
 .venv/
 .env
 
-# API Keys and Secrets
-config/keys/*.key
-*.key
+# API Keys and Secrets (exclude actual keys but allow placeholder keys in root config)
+voice-assistant/config/keys/*.key
 .env
 .env.local
 .env.development.local
